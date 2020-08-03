@@ -1,0 +1,167 @@
+{
+  "name": "@alipay/kop",
+  "version": "1.0.0",
+  "description": "kop",
+  "main": "kop.common.js",
+  "module": "dist/kop.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "HISTORY.md"
+  ],
+  "keywords": [
+    "kop"
+  ],
+  "authors": [
+    "mark.chenfl@alibaba-inc.com",
+    "jiawei.njw@antfin.com",
+    "xinhui.zxh@antgroup.com",
+    "changzhe.zb@antgroup.com"
+  ],
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build": "rimraf ./dist/ & npm run build:prod & npm run build:types",
+    "build:dev": "cross-env NODE_ENV=development rollup -c",
+    "build:prod": "cross-env NODE_ENV=production rollup -c",
+    "dev": "npm run watch:rollup & npm run watch:ts",
+    "watch:rollup": "cross-env NODE_ENV=development rollup -c --watch",
+    "watch:ts": "tsc --emitDeclarationOnly --watch",
+    "build:old": "tnpm run lint && tnpm run clean && babel src --out-dir lib --extensions \".ts,.tsx\"",
+    "clean": "rimraf lib",
+    "lint": "eslint --ext .ts,.tsx src",
+    "test": "cross-env NODE_ENV=development npm run jest",
+    "jest": "jest",
+    "ci": "tnpm run lint && tnpm test && tnpm run clean && tnpm run build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --ext .js,.jsx,.ts,.tsx",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.alipay-inc.com:alisis/kop.git"
+  },
+  "dependencies": {
+    "core-js": "^2.6.11",
+    "immutability-helper-x": "^1.0.5",
+    "invariant": "^2.2.2",
+    "lodash": "^4.17.11",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.0",
+    "redux-saga": "^0.16.0",
+    "regenerator-runtime": "^0.10.5",
+    "reselect": "^3.0.0"
+  },
+  "peerDependencies": {
+    "react": "~16.8.0",
+    "react-dom": "~16.8.0",
+    "react-router-dom": "~4.4.0 || ~3.2.1"
+  },
+  "devDependencies": {
+    "@ali/ci": "^4.8.0",
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@types/enzyme": "^3.1.15",
+    "@types/enzyme-adapter-react-16": "^1.0.3",
+    "@types/invariant": "^2.2.29",
+    "@types/jest": "^23.3.10",
+    "@types/jsdom": "^12.2.0",
+    "@types/lodash": "^4.14.129",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-redux": "^7.0.0",
+    "@types/react-router-dom": "~4.3.1",
+    "@typescript-eslint/eslint-plugin": "^2.8.0",
+    "@typescript-eslint/parser": "^2.8.0",
+    "babel-jest": "^24.9.0",
+    "commitlint": "^8.2.0",
+    "cross-env": "^7.0.2",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-typescript": "^0.14.0",
+    "father": "^2.29.2",
+    "history": "~4.9.0",
+    "husky": "^3.1.0",
+    "immutability-helper": "^2.2.0",
+    "jest": "^24.9.0",
+    "jest-cli": "^23.6.0",
+    "jest-enzyme": "^7.0.0",
+    "jsdom": "^10.1.0",
+    "lint-staged": "^9.2.5",
+    "prettier": "^1.19.1",
+    "react-addons-test-utils": "^15.6.2",
+    "react-router-dom": "^5.2.0",
+    "rimraf": "^2.7.1",
+    "rollup": "^2.3.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "ts-jest": "^23.10.5",
+    "tslint-config-prettier": "^1.3.0",
+    "typescript": "^3.7.0",
+    "typescript-eslint-parser": "22.0.0"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npm.alibaba-inc.com"
+  },
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "diagnostics": false
+      }
+    },
+    "setupTestFrameworkScriptFile": "jest-enzyme",
+    "testEnvironment": "enzyme",
+    "setupFiles": [
+      "./__tests__/setup.ts"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*_(test|spec))\\.(ts|tsx|js)$",
+    "moduleNameMapper": {
+      "^.+\\.(css|less)$": "<rootDir>/.jestignore.js"
+    },
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/types/**/*.ts"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
+  },
+  "ci": {
+    "type": "gitlab",
+    "version": "8, 10"
+  }
+}

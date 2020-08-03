@@ -1,0 +1,17 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        "targets": {
+          "ie": "10"
+        },
+        "corejs": 2
+      }
+    ],
+    "@babel/typescript",
+    "@babel/react"
+  ],
+  "plugins": ["@babel/proposal-class-properties"]
+}

@@ -1,0 +1,79 @@
+.workbook {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-between;
+  height: 48px;
+  color: #fff;
+  background: #2a3038;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.header button {
+  margin-right: 20px;
+  background-color: transparent;
+  color: white;
+}
+
+.content {
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+}
+
+.sidebar {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px 0 rgba(184, 198, 211, 0.4);
+  position: relative;
+  z-index: 2;
+}
+
+.sidebar-header {
+  height: 40px;
+  background-color: #ebeef3;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-right: 1px solid #dce3e8;
+  border-bottom: 1px solid #dce3e8;
+  font-size: 14px;
+  color: #259df7;
+  font-weight: 500;
+}
+
+.sidebar-main {
+  display: flex;
+  flex: 1;
+}
+
+.sidebar-main .left,
+.sidebar-main .right {
+  display: flex;
+  flex: 1;
+  background-color: rgb(247, 249, 251);
+  border-right: 1px solid #dce3e8;
+}
+.sidebar-main .left {
+  flex-direction: column;
+  border-right: 1px solid rgb(220, 227, 232);
+}
+
+.sidebar-main .right {
+  padding: 10px 8px;
+}
+
+.main-container {
+  flex: 1;
+  display: flex;
+  background-color: #f0f3f5;
+  flex-direction: column;
+  position: relative;
+}

@@ -1,0 +1,92 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint-config-airbnb",
+    "prettier",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "prettier/react",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "jest": true
+  },
+  "globals": {
+    "window": "writable",
+    "document": "writable"
+  },
+  "rules": {
+    "no-param-reassign": [
+      "error",
+      {
+        "props": false
+      }
+    ],
+    "no-underscore-dangle": 0,
+    "quote-props": [2, "consistent-as-needed"],
+    "no-unused-vars": 1,
+    "arrow-body-style": [1, "as-needed"],
+    "arrow-parens": [1, "as-needed"],
+    "class-methods-use-this": 1,
+    "no-console": [
+      1,
+      {
+        "allow": ["error"]
+      }
+    ],
+    "func-names": [2, "never"],
+    "no-plusplus": 0,
+    "no-useless-constructor": 1,
+    "max-len": [
+      2,
+      120,
+      2,
+      {
+        "ignoreUrls": true,
+        "ignoreComments": false,
+        "ignoreRegExpLiterals": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }
+    ],
+    "react/jsx-no-bind": 1,
+    "react/no-unused-prop-types": [
+      1,
+      {
+        "skipShapeProps": true
+      }
+    ],
+    "react/sort-comp": 0,
+    "react/jsx-filename-extension": 0,
+    "react/prefer-stateless-function": 0,
+    "jsx-a11y/no-static-element-interactions": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/no-unresolved": 0,
+    "import/extensions": 0,
+    "new-cap": [
+      2,
+      {
+        "capIsNewExceptions": ["DragSource", "DropTarget", "DragDropContext"]
+      }
+    ],
+    "generator-star-spacing": 0,
+    "no-use-before-define": [0],
+    "space-before-function-paren": [0],
+    "@typescript-eslint/camelcase": 1,
+    "@typescript-eslint/no-use-before-define": 1,
+    "@typescript-eslint/interface-name-prefix": 0,
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "prefer-destructuring": 0,
+    "import/prefer-default-export": 0,
+    "@typescript-eslint/no-explicit-any": 0
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "defaultSeverity": "warning",
+  "extends": ["tslint-config-airbnb", "tslint-config-prettier"],
+  "jsRules": {},
+  "rules": {
+    "ter-indent": [2],
+    "import-name": [0],
+    "no-any": true,
+    "no-unused-variable": true,
+    "function-name": false,
+    "variable-name": false,
+    "ter-arrow-parens": [true, "as-needed"],
+    "align": [false],
+    "semicolon": [true, "always", "ignore-bound-class-methods"],
+    "no-trailing-whitespace": [true],
+    "no-else-after-return": [false],
+    "no-this-assignment": [false]
+  },
+  "rulesDirectory": []
+}

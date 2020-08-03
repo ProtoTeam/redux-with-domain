@@ -1,0 +1,26 @@
+{
+  "name": "quick-start",
+  "version": "1.1.0",
+  "private": true,
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "es6-promise": "^4.2.4",
+    "@alipay/kop": "^1.0.0-beta.5",
+    "immutability-helper": "^2.2.0",
+    "lodash": "^4.17.4",
+    "prop-types": "^15.5.10",
+    "react": "~16.8.0",
+    "react-dom": "~16.8.0",
+    "react-router-dom": "4.3.1",
+    "react-transition-group": "^2.2.1"
+  },
+  "devDependencies": {
+    "react-scripts": "1.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

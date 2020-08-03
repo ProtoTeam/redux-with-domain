@@ -1,0 +1,6 @@
+dist/*
+static/*
+bin/*
+public/*
+tests/*
+webpack.config*.js

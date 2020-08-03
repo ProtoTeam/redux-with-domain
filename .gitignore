@@ -1,0 +1,14 @@
+coverage/
+node_modules/
+tmp/
+temp/
+.idea/
+*.log
+*.iml
+.DS_Store
+test/coverage/
+coverage/
+lib/
+dist/
+.cache/
+.vscode/
