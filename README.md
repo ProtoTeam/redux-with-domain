@@ -1,12 +1,5 @@
 # redux-with-domain
 
-[![TNPM version][tnpm-image]][tnpm-url]
-[![TNPM downloads][tnpm-downloads-image]][tnpm-url]
-
-[tnpm-image]: https://npm.alibaba-inc.com/badge/v/@alipay/kop.svg
-[tnpm-url]: https://npm.alibaba-inc.com/package/@alipay/kop
-[tnpm-downloads-image]: https://npm.alibaba-inc.com/badge/d/@alipay/kop.svg
-
 --------------------
 
 ## 背景
