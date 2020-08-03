@@ -12,3 +12,6 @@ lib/
 dist/
 .cache/
 .vscode/
+
+# lock
+package-lock.json
