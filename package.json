@@ -29,6 +29,7 @@
     "build": "rimraf ./dist/ & npm run build:prod & npm run build:types",
     "build:dev": "cross-env NODE_ENV=development rollup -c",
     "build:prod": "cross-env NODE_ENV=production rollup -c",
+    "coverage": "cross-env NODE_ENV=development jest --coverage",
     "dev": "npm run watch:rollup & npm run watch:ts",
     "watch:rollup": "cross-env NODE_ENV=development rollup -c --watch",
     "watch:ts": "tsc --emitDeclarationOnly --watch",
