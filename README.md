@@ -21,8 +21,6 @@
 ## 设计理念
 
 1. 领域驱动设计
-![ddd](https://lark-assets-prod-aliyun.oss-cn-hangzhou.aliyuncs.com/yuque/0/2020/jpeg/154392/1596438400628-resources/1567026/jpg/b23d804c-8068-4537-8a7b-c57c2d511095.jpeg?OSSAccessKeyId=LTAI4GGhPJmQ4HWCmhDAn4F5&Expires=1596440419&Signature=YHBKG6U5%2BuxdQ%2FiHUdtqPKD10QM%3D)
-
     领域驱动是为了提升架构的稳定性，在展开之前，先介绍一下概念：
 
     1. 领域即应用软件的问题域，问题域一旦确定，边界与最优解随之确定。
@@ -40,8 +38,7 @@
     并且因为数据层与逻辑层的稳定，多端适配和数据同步的问题也很容易得到解决。
 
 2. 状态分层
-![layer](https://lark-assets-prod-aliyun.oss-cn-hangzhou.aliyuncs.com/yuque/0/2020/jpeg/154392/1596438432465-resources/1567026/jpg/07f756a8-83bd-45e2-bf67-db721f59c151.jpeg?OSSAccessKeyId=LTAI4GGhPJmQ4HWCmhDAn4F5&Expires=1596440235&Signature=ZUXEUR4iHgzxOFWOQqHs%2FdHbRHs%3D)
-状态分层为了解决 3 类问题：
+    状态分层为了解决 3 类问题：
     1. view ：视图组件不再通用，出现大量雷同的组件，复用性降低
     2. state ：redux体系下随着迭代的进行，中间状态不断膨胀，导致复杂度无法收敛
     3. control： 业务逻辑分散，随着人员更替，模块定位不再清晰，模块边界逐渐模糊
@@ -51,9 +48,6 @@
 ## demos
 基于 BI 为原型开发的 redux-with-domain 例子。演示了如何使用 redux-with-domain 解决复杂前端项目的架构问题。
 [simple-BI](./examples/simple-BI)
-
-## api
-
 
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)
