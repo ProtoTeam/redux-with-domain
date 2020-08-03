@@ -1,0 +1,57 @@
+.report-canvas {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 48px;
+  background: #f0f3f5;
+}
+
+.report-canvas .list {
+  border: 1px dashed #a4b1bd;
+}
+
+.report-canvas .chart {
+  margin: 4px 4px 8px 4px;
+  padding: 20px;
+  height: 280px;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #fff;
+  cursor: pointer;
+  border: 2px solid transparent;
+  display: flex;
+}
+
+.report-canvas .chart:last-child {
+  margin-bottom: 4px;
+}
+
+.report-canvas .chart .title {
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 18px;
+  margin-bottom: 16px;
+  font-family: PingFangSC-Medium;
+}
+
+.report-canvas .chart.selected {
+  border: 2px solid #69c0ff;
+}
+
+.report-canvas .chart img {
+  height: 90%;
+  width: auto;
+}
+
+.report-canvas .chart .chart-container {
+  display: flex;
+  flex: 1;
+}
+
+.report-canvas .icon-loading {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-13px, -13px);
+}
