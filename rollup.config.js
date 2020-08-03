@@ -1,4 +1,5 @@
 /* eslint-disable quote-props */
+import typescript from 'rollup-plugin-typescript'
 import commonjs from 'rollup-plugin-commonjs'
 import resolve from 'rollup-plugin-node-resolve'
 import babel from 'rollup-plugin-babel'
@@ -6,7 +7,6 @@ import * as react from 'react'
 import * as reactDom from 'react-dom'
 import * as reactIs from 'react-is'
 import * as lodash from 'lodash'
-// import pkg from "./package.json";
 
 const env = process.env.NODE_ENV
 const isDevelopment = env === 'development'
@@ -38,6 +38,8 @@ export default {
   },
 
   plugins: [
+    typescript(),
+
     // Allows node_modules resolution
     resolve({ extensions }),
 

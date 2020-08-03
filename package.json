@@ -7,8 +7,7 @@
   "types": "dist/index.d.ts",
   "files": [
     "dist",
-    "README.md",
-    "HISTORY.md"
+    "README.md"
   ],
   "keywords": [
     "kop",
@@ -33,8 +32,6 @@
     "dev": "npm run watch:rollup & npm run watch:ts",
     "watch:rollup": "cross-env NODE_ENV=development rollup -c --watch",
     "watch:ts": "tsc --emitDeclarationOnly --watch",
-    "build:old": "tnpm run lint && tnpm run clean && babel src --out-dir lib --extensions \".ts,.tsx\"",
-    "clean": "rimraf lib",
     "lint": "eslint --ext .ts,.tsx src",
     "test": "cross-env NODE_ENV=development npm run jest",
     "jest": "jest",
@@ -111,11 +108,11 @@
     "lint-staged": "^9.2.5",
     "prettier": "^1.19.1",
     "react-addons-test-utils": "^15.6.2",
-    "react-router-dom": "^5.2.0",
     "rimraf": "^2.7.1",
     "rollup": "^2.3.1",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-typescript": "^1.0.1",
     "rollup-plugin-node-resolve": "^5.2.0",
     "ts-jest": "^23.10.5",
     "tslint-config-prettier": "^1.3.0",
@@ -159,5 +156,6 @@
       "node_modules",
       "src"
     ]
-  }
+  },
+  "license": "MIT"
 }
