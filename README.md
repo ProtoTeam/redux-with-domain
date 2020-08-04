@@ -20,9 +20,9 @@
 
 ## 设计理念
 
-1. 领域驱动设计 (链接)[https://github.com/ProtoTeam/redux-with-domain/wiki#%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1]
+1. 领域驱动设计 [链接](https://github.com/ProtoTeam/redux-with-domain/wiki#%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1)
 
-2. 状态分层 (链接)[https://github.com/ProtoTeam/redux-with-domain/wiki#%E7%8A%B6%E6%80%81%E5%88%86%E5%B1%82]
+2. 状态分层 [链接](https://github.com/ProtoTeam/redux-with-domain/wiki#%E7%8A%B6%E6%80%81%E5%88%86%E5%B1%82)
 
 ## demos
 基于 BI 为原型开发的 redux-with-domain 例子。演示了如何使用 redux-with-domain 解决复杂前端项目的架构问题。
