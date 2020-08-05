@@ -3,7 +3,7 @@ import { mapValues, isArray } from 'lodash'
 import { Store } from 'redux'
 
 import { KOP_GLOBAL_SELECTOR_LOOP_CHECK } from '../../const'
-import { getStateByNamespace } from '../../utils'
+import { getStateByNamespace, config } from '../../utils'
 
 declare global {
   interface Window {
@@ -69,18 +69,19 @@ export default function initSelectorHelper(store: Store) {
 
 export function createSelectors(namespace, selectors, presenter, initialState) {
   const globalizeSelector = (selector, key) => (...params) => {
-    const stateValue = _getStateValue(
-      key,
-      currentState,
-      namespace,
-      initialState
-    )
+    console.log('xxx', params, config.multiInstance)
+    let state
+    if (config.multiInstance) {
+      state = params.shift()
+    } else {
+      state = currentState
+      if (params[0] === currentState) {
+        params.shift()
+      }
+    }
+    const stateValue = _getStateValue(key, state, namespace, initialState)
 
     selectorLoopChecker.start(namespace, key)
-
-    if (params[0] === currentState) {
-      params.shift()
-    }
 
     const res = presenter.loaded
       ? selector(stateValue, presenter.selectors, ...params)
@@ -96,15 +97,17 @@ export function createSelectors(namespace, selectors, presenter, initialState) {
 
 function _transformSelectors(namespace, selectors, initialState) {
   const globalizeSelector = (selector, key) => (...params) => {
-    if (isArray(params) && params.length > 1 && params[0] === currentState) {
-      params.shift()
+    let state
+    if (config.multiInstance) {
+      state = params.shift()
+    } else {
+      state = currentState
+      if (isArray(params) && params.length > 1 && params[0] === currentState) {
+        params.shift()
+      }
     }
-    const stateValue = _getStateValue(
-      key,
-      currentState,
-      namespace,
-      initialState
-    )
+
+    const stateValue = _getStateValue(key, state, namespace, initialState)
 
     const res = selector(stateValue, {
       payload: params.length === 1 ? params[0] : params
@@ -145,16 +148,17 @@ export function createContainerSelectors(
   const globalizeSelector = (selector: Function, key: string) => (
     ...params
   ) => {
-    if (isArray(params) && params.length > 1 && params[0] === currentState) {
-      params.shift()
+    let state
+    if (config.multiInstance) {
+      state = params.shift()
+    } else {
+      state = currentState
+      if (isArray(params) && params.length > 1 && params[0] === currentState) {
+        params.shift()
+      }
     }
 
-    const stateValue = _getStateValue(
-      key,
-      currentState,
-      namespace,
-      initialState
-    )
+    const stateValue = _getStateValue(key, state, namespace, initialState)
 
     let res
 

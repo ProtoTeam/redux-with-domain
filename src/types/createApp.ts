@@ -35,6 +35,7 @@ export interface Module {
   setup: Function
   type: symbol
   _store: Store
+  _multiInstance?: boolean
 }
 
 export interface Modules {
@@ -62,6 +63,7 @@ export interface App {
 }
 
 export interface CreateOpt {
+  multiInstance?: boolean
   initialReducer?: {
     [key: string]: Function
   }

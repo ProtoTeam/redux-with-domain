@@ -69,9 +69,12 @@ export default function createDomainModel(namespace, idKey) {
        *
        * @return {Object| Array | undefined}
        */
-      get: (state, selectors, id) =>
+      get: (state, selectors, id) => {
+        console.log(state, selectors, id)
         // ignore selectors and use reselect
-        getSelector(state, id),
+        return getSelector(state, id)
+      },
+
       /**
        * 基于lodash的filter实现，你可以从model中选出所有符合条件的实体
        *

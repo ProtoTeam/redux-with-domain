@@ -12,7 +12,8 @@ import {
   SelectorsOf,
   ReducerOf,
   ActionsOf,
-  DefaultReducer
+  DefaultReducer,
+  EffectsOf
 } from '../types/common'
 import { PageEffectsOf, PageModule, KopPageModule } from '../types/pageModule'
 import { KopContainerModule } from '../types/containerModule'
@@ -30,8 +31,8 @@ interface PageOptions<
   reducers?: Reducers
   defaultReducer?: DefaultReducer<State>
   injectModules?: KopContainerModule<{}, {}, {}, {}>[]
-  effects?: PageEffectsOf<Selectors, Reducers, Effects>
-  watchers?: PageEffectsOf<Selectors, Reducers, Watchers>
+  effects?: EffectsOf<Selectors, Reducers, Effects>
+  watchers?: EffectsOf<Selectors, Reducers, Watchers>
   effectLoading?: boolean
   actionCreators?: ActionsOf<ActionCreators, Reducers, Effects, Selectors>
 }

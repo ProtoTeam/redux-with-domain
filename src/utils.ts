@@ -111,3 +111,7 @@ export function hasDuplicatedKeys(obj, ...others) {
     })
   )
 }
+
+export const config = {
+  multiInstance: false
+}

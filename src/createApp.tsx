@@ -35,7 +35,13 @@ import {
 import invariant from 'invariant'
 import { DOMAIN_MODULE, ENTITY_MODULE, KOP_GLOBAL_STORE_REF } from './const'
 import defaultMiddleWares from './middlewares'
-import { isModule, isPresenter, toStorePath, hasDuplicatedKeys } from './utils'
+import {
+  isModule,
+  isPresenter,
+  toStorePath,
+  hasDuplicatedKeys,
+  config
+} from './utils'
 import initSelectorHelper from './module/options/selector'
 import {
   Presenter,
@@ -54,7 +60,7 @@ let _store: Store
 
 export default function createApp(createOpt: CreateOpt = {}) {
   let app: App
-  const { initialReducer, onError } = createOpt
+  const { initialReducer, onError, multiInstance } = createOpt
 
   // internal map for modules
   const _modules: Modules = {}
@@ -437,6 +443,10 @@ export default function createApp(createOpt: CreateOpt = {}) {
       sagaMiddleware.run(createSaga(module))
     })
 
+    if (multiInstance) {
+      config.multiInstance = multiInstance
+    }
+
     return renderAppElement(domSelector, callback, shouldRender)
   }
 
@@ -464,6 +474,9 @@ export default function createApp(createOpt: CreateOpt = {}) {
     forEach(_modules, module => {
       sagaMiddleware.run(createSaga(module))
     })
+    if (multiInstance) {
+      config.multiInstance = multiInstance
+    }
   }
 
   app = {

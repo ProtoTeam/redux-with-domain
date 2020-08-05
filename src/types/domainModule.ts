@@ -1,7 +1,9 @@
+import { Action } from 'redux'
 import {
   EffectToAction,
   KopSelectors,
   Func,
+  StateType,
   BaseEffects,
   BaseReducer,
   BaseModule,
@@ -21,18 +23,33 @@ export interface KopDomainModule<Selectors, Entities, Effects> {
 /** turn original entites type to entites with crud method */
 export type DomainEntities<Entities> = {
   [key in keyof Entities]: {
-    get: <T>(
+    actions: {
+      insert(data: Entities[key] | Entities[key][]): Action<any>
+      delete(id: string | string[]): Action<any>
+      update(data: Entities[key] | Entities[key][]): Action<any>
+      clear(): Action<any>
+    }
+    get<T>(
+      state: StateType,
       id: T
-    ) => T extends string
+    ): T extends string
       ? Entities[key]
       : T extends string[]
       ? Entities[key][]
       : never
-    select: (predicate?: object) => Entities[key][]
-    insert: (data: Entities[key]) => {}
-    delete: (id: string | string[]) => {}
-    update: (data: Entities[key]) => {}
-    clear: () => {}
+    get<T>(
+      id: T
+    ): T extends string
+      ? Entities[key]
+      : T extends string[]
+      ? Entities[key][]
+      : never
+    select(predicate?: Function): Entities[key][]
+    select(state: StateType, predicate?: Function): Entities[key][]
+    insert(data: Entities[key] | Entities[key][]): {}
+    delete(id: string | string[]): {}
+    update(data: Entities[key] | Entities[key][]): {}
+    clear(): {}
   }
 }
 
