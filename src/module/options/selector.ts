@@ -69,7 +69,6 @@ export default function initSelectorHelper(store: Store) {
 
 export function createSelectors(namespace, selectors, presenter, initialState) {
   const globalizeSelector = (selector, key) => (...params) => {
-    console.log('xxx', params, config.multiInstance)
     let state
     if (config.multiInstance) {
       state = params.shift()
