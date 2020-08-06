@@ -1,6 +1,6 @@
 {
   "name": "redux-with-domain",
-  "version": "1.0.0",
+  "version": "1.0.1-beta.1",
   "description": "redux based, domain driven design framework",
   "main": "kop.common.js",
   "module": "dist/kop.esm.js",
