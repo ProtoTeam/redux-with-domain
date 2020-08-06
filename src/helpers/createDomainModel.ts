@@ -70,7 +70,6 @@ export default function createDomainModel(namespace, idKey) {
        * @return {Object| Array | undefined}
        */
       get: (state, selectors, id) => {
-        console.log(state, selectors, id)
         // ignore selectors and use reselect
         return getSelector(state, id)
       },
