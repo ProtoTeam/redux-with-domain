@@ -97,6 +97,7 @@ export type KopActions<Reducers, Effects, ActionCreators = {}> = {
 export interface CommonSelectors {
   getModuleState: Func
   getGlobalState: Func
+  __getLoadings: (state: GlobalState) => { [key: string]: boolean }
 }
 
 export type KopSelectors<T> = {
@@ -198,4 +199,8 @@ export interface BaseModule {
   setup?: Func // 已废弃
   reset?: Func // 已废弃
   lifecycle?: Func
+}
+
+export interface StateType {
+  [index: string]: any
 }

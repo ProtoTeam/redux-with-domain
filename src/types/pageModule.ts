@@ -1,14 +1,11 @@
 import {
   KopActions,
   Func,
+  KopSelectors,
   BaseModule,
   SagaEffects,
   SagaEnhancer
 } from './common'
-
-type KopSelectors<Selectors> = {
-  [K in keyof Selectors]: (...args: any[]) => any
-}
 
 export interface PageSelectorsOf<State> {
   [key: string]: (state: State, { payload: any }) => any

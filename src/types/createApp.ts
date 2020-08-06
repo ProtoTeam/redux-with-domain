@@ -62,6 +62,7 @@ export interface App {
 }
 
 export interface CreateOpt {
+  multiInstance?: boolean
   initialReducer?: {
     [key: string]: Function
   }
