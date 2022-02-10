@@ -23,7 +23,7 @@ export default createDomainModule<Entities, {}, Effects>('domain/report', {
   services: ({ services, entities, sagaEffects: { put, call } }) => ({
     *fetchReports({ payload }: { payload: string[] }) {
       // 请求报表列表
-      const reports = yield call(quertyReportList, payload)
+      const reports:ReportItem = yield call(quertyReportList, payload)
       // 保存值
       entities.reportList.insert(reports)
     }

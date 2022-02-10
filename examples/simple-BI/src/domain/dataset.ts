@@ -29,7 +29,7 @@ export default createDomainModule<Entities, {}, Effects>('domain/dataset', {
   services: ({ entities, sagaEffects: { put, call } }) => ({
     *fetchDatasets({ payload }: { payload: string[] }) {
       // 请求图表详情
-      const datasets = yield call(quertyDatasetList, payload)
+      const datasets:DatasetItem = yield call(quertyDatasetList, payload)
       // 保存值
       entities.datasetList.insert(datasets)
     }
